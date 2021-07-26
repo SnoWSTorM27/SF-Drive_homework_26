@@ -1,0 +1,35 @@
+.contacts {
+    background: #F7F9FB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    flex-direction: column;
+    padding-top: 80px;
+    padding-bottom: 104px;
+}
+.conteinerContacts {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 69px;
+    justify-content: center;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (max-width: 768px) {
+    .separator {
+        display: none;
+    }
+    .contacts {
+        padding: 20px 55px 40px;
+    }
+
+    .conteinerContacts {
+        grid-auto-flow: row;
+        column-gap: unset;
+        row-gap: 20px;
+        font-weight: normal;
+        font-style: normal;
+    }
+}

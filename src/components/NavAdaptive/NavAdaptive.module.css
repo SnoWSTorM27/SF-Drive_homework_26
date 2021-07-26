@@ -1,0 +1,111 @@
+.headerLogo{
+    display: none;
+}
+.BtnNav{
+    display: none;
+}
+.iconClose {
+    display: none;
+}
+
+.navLink{
+    display: none;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .headerLogo{
+        padding: 20px 20px ;
+        cursor: pointer;
+        display: unset;
+    }
+
+    .iconClose {
+        padding: 25px 25px;
+        cursor: pointer;
+        display: unset;
+    }
+
+    .overlayNav{
+        position: fixed;
+        background-color: rgba(255, 255, 255, 0.95);
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        transition: 200ms ease-in-out;
+        z-index: 5;
+        
+
+    }
+
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: -webkit-fill-available;
+
+    }
+
+    .navBarAdaptive{
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 37px;
+    }
+
+    .navLink {
+        display: flex;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 24px;
+        color: #1B1B1B;
+        padding: 0px 15px;
+        align-items: center;
+        z-index: 100;
+        }
+        .navLink:hover {
+        background: #324851;
+        color: #61A199;
+        box-shadow: inset 0 0 0 5px #61A199;
+        }
+
+    .headerNavAdaptive{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .BtnNav {
+        
+        align-self: stretch;
+        height: 43px;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+        border: 1px solid rgba(27, 27, 27, 0.4);
+        border-radius: 6px;
+        margin: 20px 20px;
+        background: #FFFFFF;
+        cursor: pointer;
+        
+    } 
+    .BtnNav:hover {
+        background: #324851;
+        color: #61A199;
+        box-shadow: inset 0 0 0 3px #61A199;
+    } 
+
+}

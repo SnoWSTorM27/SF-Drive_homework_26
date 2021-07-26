@@ -1,0 +1,33 @@
+.contactsForm {
+    max-width: content;
+}
+.type {
+    font-size: 14px;
+    line-height: 21px;
+    color: #4f4f4f;
+    display: flex;
+    justify-content: center;
+}
+.info {
+    color: #1B1B1B;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+}
+.info:hover {
+    background: #b7b8b6;
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 768px) {
+    .contactsForm {
+      max-width: content;
+      text-align: center;
+    }
+    .type {
+      font-size: 12px;
+    }
+    .info {
+      font-size: 14px;
+    }
+}  

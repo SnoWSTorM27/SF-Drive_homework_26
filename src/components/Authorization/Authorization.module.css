@@ -1,0 +1,230 @@
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    pointer-events: none;
+    transition: 200ms ease-in-out;
+}
+
+.modalWindow {
+    height: 668px;
+    width: 504px;
+    max-width: 90%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 10;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    transition: 200ms ease-in-out; 
+}
+
+.iconClose{
+    align-self: flex-end;
+    margin: 25px 25px 22px;
+    cursor: pointer;
+}
+
+.logoAuthorization {
+    margin: 0px 101px 38px;
+}
+
+.headingAuth {
+    margin-top: 0;
+    margin-bottom: 60px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    color: #1B1B1B;
+}
+
+.emailAuth {
+    width: 350px;
+    height: 44px;
+    border: 1px solid #D0CDE1;
+    border-radius: 6px;
+    padding: 14px 12px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px !important;
+    line-height: 16px;
+    margin-bottom: 20px !important;
+    outline: none;
+    position: relative;
+}
+
+.inputPassword{
+    position: relative;
+    width: 350px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #D0CDE1;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 30px;   
+}
+
+.emailAuth:focus{
+    outline: none;
+    border: 2px solid #61A199 ;
+}
+
+.inputLabel {
+    position: absolute;
+    right: 0;
+    text-align: center;
+    padding-right: 12px;
+    color: #508E87;
+    cursor: pointer;
+    outline: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+/* .wrapperHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+/* .btnAuth::after {
+    content: " ";
+    position: absolute;
+    z-index: 11;
+    bottom: 80px;
+    height: 3px;
+    width: 350px;
+    left: 50%;
+    transform: translateX(-50%); 
+    background-color: #DEDBF1;
+} */
+
+.modalWindow::after {
+    content: " ";
+    position: absolute;
+    z-index: 11;
+    top: 600px;
+    height: 3px;
+    width: 350px;
+    left: 50%;
+    transform: translateX(-50%); 
+    background-color: #DEDBF1;
+}
+
+.linkToSignUp {
+    margin-bottom: 34px;
+    color: #508E87;
+}
+
+.btnAuth[disabled] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    background: #E6E6E6;
+    color: #B4B5BD;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    margin-bottom: 60px;
+    cursor:default;
+    font-size: 16px;
+    line-height: 19px;
+    height: 51px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.btnAuth {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    background: #61A199;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-style: normal;
+    font-weight: 500;
+    color: #FFFFFF;
+    border: inherit;
+    cursor: pointer;
+    margin-bottom: 60px;
+    font-size: 16px;
+    line-height: 19px;
+    height: 51px;
+}
+
+.errorLabel{
+    color: red;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: absolute;
+    top: 330px;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .headingAuth{
+        font-size: 28px;
+        line-height: 34px;
+        margin-bottom: 50px;
+    }
+
+    .iconClose{
+        margin-bottom: 69px;  
+    }
+
+    .linkToSignUp {
+        margin-bottom: 57px;
+    }
+
+    .overlay {
+        background: #FFFFFF;
+    }
+    .modalWindow{
+        position: fixed;
+        /* top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0; */
+        /* transform: unset; */
+        width: 100%;
+        height: 100%;
+        max-width: unset;
+        
+    }
+
+    .btnAuth, .btnAuth[disabled]{
+        margin: 0px 20px 70px;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .errorLabel{
+        top: 370px;
+    }
+
+    .modalWindow::after {
+        top: 635px;
+    }
+}

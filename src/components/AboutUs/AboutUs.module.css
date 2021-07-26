@@ -1,0 +1,14 @@
+.contentAboutUs {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    justify-content: space-evenly;
+    align-content: center;
+  }
+
+@media screen and (max-width: 768px) {
+  .contentAboutUs {
+    padding-top: 60px;
+
+  } 
+}

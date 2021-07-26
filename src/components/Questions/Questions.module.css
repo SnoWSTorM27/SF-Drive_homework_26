@@ -1,0 +1,86 @@
+.questionsBlock {
+    display: flex;
+    flex-direction: column;
+    margin: 60px 210px 0px;
+    justify-content: space-between;
+}
+
+.collapsibleItem, .collapsibleContent {
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 29px;
+    color: #1B1B1B;
+}
+  
+.collapsibleItem {
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 22px;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    margin-bottom: 14px;
+    border: 3px solid transparent;
+    display: grid;
+    grid-template-columns: auto 32px;
+    align-items: center;
+    background: #F7F7F8;
+}
+.collapsibleItem.active{
+    color: #61A199;
+    font-weight: 500;
+}
+.collapsibleItem:hover {
+    border: 3px solid blue;
+    background: rgba(97, 161, 153, 0.1);
+}
+  
+.collapsibleItem:after {
+    content: url(./chevron-down.svg);
+    float: right;
+}
+  
+.collapsibleItem.active:after {
+    content: url(./chevron-up.svg);
+    transition: all 0.2s ease-out;
+}
+  
+.collapsibleContent {
+    padding: 0px 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.2s ease-out;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 1100px) {
+    .questionsBlock {
+      margin: 60px 0px 0px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .collapsibleItem, .collapsibleContent {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .collapsibleItem{
+        padding:14px 14px 14px 20px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .questionsBlock, .collapsibleContent p {
+      font-size: 14px;
+      line-height: 21px;
+    }
+    .questionsBlock {
+      margin: 30px 0px 0px;
+    }
+    .collapsibleItem, .collapsibleContent {
+        font-size: 14px;
+        line-height: 21px;
+    }
+}

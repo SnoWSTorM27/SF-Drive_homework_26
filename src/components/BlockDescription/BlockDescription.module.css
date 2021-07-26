@@ -1,0 +1,37 @@
+.boxDescriptionMain {
+    display: flex;
+    margin: 160px 208px;
+    justify-content: space-between;
+    /* flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;*/
+} 
+
+.boxDescriptionMain:nth-child(even){
+    flex-direction: row-reverse;
+    margin-right: 0px;
+    margin-left: 78px;
+    margin: 160px 208px;
+}
+
+.logoBlock{
+    margin-right: 78px;
+    max-height: 300px;
+}
+
+.headingBlockMain{
+    text-align: left;
+}
+
+.textDescriptionBlockMain{
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: left;
+}
+
+.wrapperTextBlock {
+    max-width: 45%;
+}
+

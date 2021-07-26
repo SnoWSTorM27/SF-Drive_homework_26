@@ -1,0 +1,194 @@
+/* *, *::after, *::before {
+    box-sizing: border-box;
+} */
+
+.overlayRecovery {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transition: 200ms ease-in-out;
+}
+
+.headerModalWindow{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.modalWindowRecovery {
+    position: fixed;
+    background-color: #FFFF;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+    transition: 200ms ease-in-out;
+    width: 504px;
+    max-width: 80%;
+    height: 566px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.iconCloseRecovery {
+    padding: 25px 25px 22px;
+    cursor: pointer;
+}
+
+.vectorLeft {   
+    padding: 25px 25px 22px;
+    cursor: pointer;
+}
+.logoRecovery {
+    padding-bottom:38px;
+}
+
+.headingRecovery {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.textRecovery {
+    width: 333px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 30px;
+}
+
+.emailGroup{
+    border: 1px solid #E0E0E0;
+    margin-bottom: 30px;
+    padding: 0 12px;
+    position: relative;
+    width: 350px;
+    border-radius: 6px;
+    height: 44px;
+    display: flex;
+    align-items: stretch;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    width: 350px;
+    height: 44px;
+    
+}
+
+.inputEmailRecovery {
+    position: relative;
+    border: none;
+    outline: 0;
+    padding: 14px 0 14px; 
+    width: 100%;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    max-width: 350px;
+}
+
+
+.labelEmailRecovery {
+    position: absolute;
+    transform-origin: top left;
+    transform: translate(0, 14px) scale(1);
+    transition: all .1s ease-in-out;
+}
+
+.emailGroup.active .labelEmailRecovery {
+    transform: translate(0, 4px) scale(.75);
+}
+
+.btnRecovery[disabled] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px 40px;
+    background: #E6E6E6;
+    color: #B4B5BD;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    cursor:default;
+}
+
+.btnRecovery {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    background: #61A199;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 500;
+    color: #FFFFFF;
+    border: inherit;
+    cursor: pointer;
+}
+
+.errorLabel{
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    top: 370px;
+}
+
+@media screen and (max-width: 768px) {
+    
+
+    
+
+    .headingRecovery{
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    .iconClose{
+        margin-bottom: 69px;  
+    }
+
+    .overlay {
+        background: #FFFFFF;
+    }
+    .modalWindowRecovery{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        max-width: unset;
+        border-radius: unset;
+    }
+
+    .btnRecovery, .btnRecovery[disabled]{
+        margin: 176px 20px 20px 20px;
+        width: 100%;
+        max-width: 350px;
+        position: fixed;
+        bottom: 20px;
+
+    }
+
+    .errorLabel{
+        top: 365px;
+    }
+
+    
+}
+

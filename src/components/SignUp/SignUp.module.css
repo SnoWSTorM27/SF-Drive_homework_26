@@ -1,0 +1,23 @@
+.signUpStep1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.steps {
+    padding-top: 60px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .signUpStep1 {
+        align-items: stretch;
+        margin: auto 20px;
+    }
+
+    .steps {
+        align-self: center;
+        padding-top: 54px;
+    }
+    
+}

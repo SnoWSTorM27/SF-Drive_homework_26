@@ -1,0 +1,36 @@
+.personItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 180px;
+    flex-direction: column;
+    margin: 30px 40px;
+}
+.personItem > h3 {
+    margin-top: 23px;
+    margin-bottom: 0px;
+}
+.personItem > h4 {
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+@media screen and (max-width: 768px) {
+    .personItem {
+      margin: 0;
+      flex-basis: 167px;
+      margin-bottom: 40px;
+    }
+    .personItem > img {
+      width: 80px;
+    }
+    h5 {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    h5 {
+        margin: 0;
+    }
+}

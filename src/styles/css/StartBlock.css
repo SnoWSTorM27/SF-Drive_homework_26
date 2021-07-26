@@ -1,0 +1,11 @@
+
+.textDiscription {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 35px;
+  text-align: center;
+  max-width: 925px;
+  display: flex;
+  align-items: center;
+}

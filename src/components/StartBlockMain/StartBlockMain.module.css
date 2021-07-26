@@ -1,0 +1,59 @@
+.startBlockMain {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 180px;
+}
+  
+  
+.logoBlockMain {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    z-index: -1;
+    /* width: 63%; */
+    height: 730px;
+    
+    
+}
+
+.wrapperTextMain {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 108px 0px 183px 204px;
+    width: 617px;
+    align-content: space-between;
+}
+
+.headingMain {
+    text-align: left;
+    margin: 0;
+}
+
+.textDescriptionMain {
+    margin: 30px 0px 40px;
+    text-align: left;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 35px;
+    width: 86%;
+}
+
+.btnSignUp {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 40px;
+    background: #61A199;
+    border-radius: 6px;
+    align-self: flex-start;
+    font-style: normal;
+    font-weight: 500;
+    color: #FFFFFF;
+    border: inherit;
+    cursor: pointer;
+}   

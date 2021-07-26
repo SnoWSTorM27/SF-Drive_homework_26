@@ -1,0 +1,29 @@
+.teamBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 120px;
+}
+.teamPersons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 1040px;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1100px) {
+    h1 {
+      font-size: 48px;
+    }
+  
+    .teamPersons {
+      width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .teamBlock {
+        margin-bottom: 0;
+    }
+}
