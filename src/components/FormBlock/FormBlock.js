@@ -1,5 +1,7 @@
 import React, { useState, Fragment, useEffect } from "react";
 
+import {callApi} from "../../../callApi/callApi"
+
 import cssFormBlock from "./FormBlock.module.css";
 
 import IconButton from '@material-ui/core/IconButton';
@@ -58,7 +60,7 @@ function FormBlock () {
         forms.email = email;
 
         console.log(forms)
-        if (formValid) await request("/api/auth/register", "POST", forms);
+        if (formValid) await callApi("/api/auth/register", "POST", forms);
     }
 
     //Состояния почты
@@ -222,7 +224,6 @@ function FormBlock () {
 
     // // Валидация формы
     // const handleValidation = (value) => {
-    //     debugger
     //     let validationSuccess = true
     //     const emailRegExp = new RegExp('^[^\s@]+@[^\s@]+$')
         

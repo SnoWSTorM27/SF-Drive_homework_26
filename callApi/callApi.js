@@ -1,4 +1,4 @@
-
+import {getAccessToken} from "./getAccessToken";
 
 export async function callApi(url, method, body) {
     const accessToken = await getAccessToken();
