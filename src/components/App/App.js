@@ -8,9 +8,7 @@ import "@babel/polyfill";
 
 
 function App() {
-    localStorage.setItem("accessToken", "some_token");
-    const token = localStorage.getItem("accessToken");
-    console.log(token)
+    
 
     const routes = useRoutes(true);
     return (
