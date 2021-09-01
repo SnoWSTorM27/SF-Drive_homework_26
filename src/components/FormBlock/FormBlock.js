@@ -60,7 +60,7 @@ function FormBlock () {
         forms.email = email;
 
         console.log(forms)
-        if (formValid) await callApi("/api/auth/registration", "POST", forms);
+        if (formValid) await request("/api/auth/registration", "POST", forms);
     }
 
     //Состояния почты

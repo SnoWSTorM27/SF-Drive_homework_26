@@ -12,8 +12,8 @@ const generateTokens = async (id, roles) =>{
         id, 
         roles
     }
-    const accessToken = jwt.sign(payload,config.get("jwtSecretAccess"),{expiresIn:"10s"})
-    const refreshToken = jwt.sign({},config.get("jwtSecretRefresh"),{expiresIn:"25s"})
+    const accessToken = jwt.sign(payload,config.get("jwtSecretAccess"),{expiresIn:"15s"})
+    const refreshToken = jwt.sign({},config.get("jwtSecretRefresh"),{expiresIn:"30d"})
     const query = {_id:id}
     await User.updateOne(query,{refreshToken:refreshToken})
     return {
@@ -41,7 +41,9 @@ class authController {
             const user = new User({ email, password: hashedPassword, name, birthDay, phone, serialPass, selectedDatePass, provide, idPassOffice, idDrivingLicense, selectedDateDrivingLicence, roles:[userRole.value]});
 
             await user.save();
-            return res.status(201).json({ message: "Пользователь успешно зарегистрирован"});
+            const token = await generateTokens(user._id, user.roles);
+             
+            return res.status(201).json({ message: "Пользователь успешно зарегистрирован", token} );
 
         } catch (e) {
             console.log(e)
@@ -56,42 +58,37 @@ class authController {
             if (!user) {
                 return res.status(400).json({message:`Пользователь ${email} не найден`})
             }
-            // const isValidPassword = bcrypt.compareSync(password, user.password);
+            const isValidPassword = bcrypt.compareSync(password, user.password);
 
-            // if (!isValidPassword) {
-            //     return res.status(400).json({message: "Неверный пароль, попробуйте снова"})
-            // }
+            if (!isValidPassword) {
+                return res.status(400).json({message: "Неверный пароль, попробуйте снова"})
+            }
             const token = await generateTokens(user._id, user.roles);
-                
             return res.json( token );   
 
         } catch (e) {
             res.status(400).json({message:"Login error"})
         }
     }
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMTE2MmY3ODUzZjExMjBjMGNiM2Q1NCIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjI5MTMxNzgyLCJleHAiOjE2MjkxMzE4NDJ9.sFi3PTeNCmJjUOlPA71FV4OZfB8NUtge3GJZNetDMH8
+
     async changePass(req, res){
         try {
-            const {oldPassword, newPassword} = req.body;
-            const user = req.user;
+            const {email, newPassword} = req.body;
+            const user = await User.findOne({email});
             
             if (!user) {
                 return res.status(400).json({message:`Пользователь не найден`})
             }
-
-            // const isValidPassword = bcrypt.compareSync(oldPassword, user.password);
-
-            // if (!isValidPassword) {
-            //     return res.status(400).json({message: "Неверный пароль, попробуйте снова"})
-            // }
-
-            if (oldPassword === newPassword){
+            const isEqualPassword = bcrypt.compareSync(newPassword, user.password);
+            
+            if (isEqualPassword){
                 return res.status(400).json({message:"Пароли совпадают"})
             }
             const query = {_id:user.id}
-            await User.updateOne(query,{password:newPassword})
+            const hashedNewPassword = await bcrypt.hash(newPassword, 7);
+            await User.updateOne(query,{password:hashedNewPassword})
             
-            return res.json( {} );   
+            return res.status(200).json( {message:"Успешная смена пароля"} );   
         } catch (e) {
             res.status(400).json({message:"Login error"})
         }

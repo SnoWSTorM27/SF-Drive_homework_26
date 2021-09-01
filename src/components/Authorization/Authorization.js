@@ -24,16 +24,9 @@ import { callApi } from "../../../callApi";
 function Authorization (props) {
     const {loading, request, error, clearError} = useHttp();
     async function Auth () {
-        callApi("/api/auth/changePass","POST",{
-    
-            "oldPassword":"admin",
-            "newPassword":"142631"
-        
-        })
-        
-        // const hashedPassword = await bcrypt.hash("123456", 7);
-        await request("/api/auth/login", "POST", {email:"test@test.ru", password:"test123"})
+        await request("/api/auth/login", "POST", {email:email, password:password})
         .then(res=>{
+            
             saveTokens(res)
         })
     }
@@ -79,7 +72,7 @@ function Authorization (props) {
     //validation password
     const passwordHandler = (e) =>{
         setPassword(e.target.value)
-        if (e.target.value.length < 6) {
+        if (e.target.value.length < 4) {
             setPasswordError("Неверная почта или пароль")
             if (!e.target.value){
                 setPasswordError("Пароль не может быть пустым")

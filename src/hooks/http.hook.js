@@ -19,6 +19,7 @@ export const useHttp = () => {
                 throw new Error(data.message || "Что-то пошло не так")
             }
             setLoading(false)
+            console.log(data)
             return data
         } catch (e) {
             setLoading(false)

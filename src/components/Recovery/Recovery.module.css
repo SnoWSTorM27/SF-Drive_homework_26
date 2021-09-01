@@ -29,7 +29,7 @@
     transition: 200ms ease-in-out;
     width: 504px;
     max-width: 80%;
-    height: 566px;
+    /* height: 566px; */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -98,6 +98,24 @@
     font-size: 14px;
     line-height: 16px;
     max-width: 350px;
+    margin-bottom: 15px; 
+    
+}
+
+.inputPasswordRecovery{
+    position: relative;
+    width: 350px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #D0CDE1;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 15px;
+    margin-bottom: 15px;  
 }
 
 
@@ -124,6 +142,7 @@
     outline: none;
     margin-top: 20px;
     cursor:default;
+    margin-bottom: 60px;
 }
 
 .btnRecovery {
@@ -142,6 +161,7 @@
     color: #FFFFFF;
     border: inherit;
     cursor: pointer;
+    margin-bottom: 60px;
 }
 
 .errorLabel{
@@ -149,6 +169,10 @@
     font-size: 14px;
     position: absolute;
     top: 370px;
+}
+
+.MuiFormControl-root{
+    margin-bottom: 15px !important;
 }
 
 @media screen and (max-width: 768px) {
