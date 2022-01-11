@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-
+// const bcrypt = require("bcryptjs");
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
 import logoAuth from "./logoAuthorization.webp";
@@ -16,8 +16,27 @@ import IconButton from '@material-ui/core/IconButton';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Icon from '@material-ui/core/Icon';
+import {useHttp} from "../../hooks/http.hook";
+import {saveTokens} from "../../../callApi/saveTokens";
+import { callApi } from "../../../callApi";
+
         
 function Authorization (props) {
+    const {loading, request, error, clearError} = useHttp();
+    async function Auth () {
+        callApi("/api/auth/changePass","POST",{
+    
+            "oldPassword":"admin",
+            "newPassword":"142631"
+        
+        })
+        
+        // const hashedPassword = await bcrypt.hash("123456", 7);
+        await request("/api/auth/login", "POST", {email:"test@test.ru", password:"test123"})
+        .then(res=>{
+            saveTokens(res)
+        })
+    }
 
     function handleOnClickRecovery (){
         props.setModalState(MODAL_STATES.Recovery)
@@ -120,7 +139,7 @@ function Authorization (props) {
                     </InputAdornment>
                 }
             />
-            <button className={cssAuth.btnAuth} type="submit" disabled={!formValid}> Войти </button>
+            <button className={cssAuth.btnAuth} onClick={Auth} type="button" disabled={!formValid}> Войти </button>
             <Link onClick={ () => props.setTrigger(false) } className={cssAuth.linkToSignUp} to="/signUp" >Зарегистрироваться</Link>    
         </form>  
         <div className={cssAuth.overlay}></div>

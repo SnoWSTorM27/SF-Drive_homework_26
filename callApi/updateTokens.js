@@ -1,9 +1,10 @@
-import {ACCESS_TOKEN_STORAGE_KEY,REFRESH_TOKEN_STORAGE_KEY} from "./constants"
+import {REFRESH_TOKEN_STORAGE_KEY} from "./constants"
+import { saveTokens } from "./saveTokens";
 
 export const updateTokens = async() => {
     const refreshToken = localStorage.getItem(REFRESH_TOKEN_STORAGE_KEY);
 
-    const response = await fetch("/auth/refresh", {
+    const response = await fetch("/api/auth/refresh", {
         method:"POST",
         headers:{
             'Accept':'application/json',
@@ -11,14 +12,13 @@ export const updateTokens = async() => {
         },
         body:JSON.stringify({refreshToken}),
     });
-
-    const data = await response.json();
     
+    const data = await response.json();
     if (response.ok) {
-        localStorage.setItem(ACCESS_TOKEN_STORAGE_KEY, data.accessToken);
-        localStorage.setItem(REFRESH_TOKEN_STORAGE_KEY, data.refreshToken);
+        console.log('saving tokens')
+        saveTokens(data)
         return data.accessToken;
-    } else if (data.error) {
-        throw new Error(data.error);
+    } else {
+        throw new Error(data.message);
     }
 }

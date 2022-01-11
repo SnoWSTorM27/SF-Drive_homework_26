@@ -17,6 +17,12 @@ router.post("/login", controller.login)
 
 // /api/auth/users
 router.get("/users", [authMiddleware,roleMiddleware(["ADMIN"])], controller.getUsers)
+
+// /api/auth/changePass
+router.post("/changePass",authMiddleware, controller.changePass)
+
+// /api/auth/refresh
+router.post("/refresh", controller.refresh)
    
 
 module.exports = router;

@@ -13,6 +13,7 @@ const User = new Schema ({
     selectedDateDrivingLicence:{type: Date},
     password:{type: String, required: true},
     roles:[{type:String, ref:"Role"}],
-    links: [{type: Types.ObjectId, ref: "Link" }]
+    links: [{type: Types.ObjectId, ref: "Link" }],
+    refreshToken: {type:String}
 });
 module.exports = model ("User", User);
